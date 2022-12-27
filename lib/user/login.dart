@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../home/home_manager.dart';
+import '../screen_manager/manager_home.dart';
 
 class login extends StatefulWidget {
   const login({super.key});
@@ -66,7 +67,7 @@ class _loginState extends State<login> {
                     spacing: 5.0,
                     children: List<Widget>.generate(
                       2,
-                      (int index) {
+                          (int index) {
                         return ChoiceChip(
                           selectedColor: Colors.black,
                           disabledColor: Colors.grey[700],
@@ -85,6 +86,15 @@ class _loginState extends State<login> {
                       },
                     ).toList(),
                   ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Manager_home())
+                      );
+                    },
+                    child: Text('성경파트 바로가기'),
+                  ),
                 ],
               ),
             ),
@@ -96,15 +106,15 @@ class _loginState extends State<login> {
                   onPressed: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                      return Home_m();
-                    }));
+                          return Home_m();
+                        }));
                   },
                   child: Text(
                     "Login",
                     style: TextStyle(color: Colors.black),
                   ),
                   style: OutlinedButton.styleFrom()),
-            )
+            ),
           ],
         ),
       ),
